@@ -17,20 +17,30 @@ form.addEventListener('submit', e => {
         } 
 
      // MOJE rozwiązanie
-    span.textContent = score + '%';
+    // span.textContent = score + '%';
 
     })
 
     // MOJE rozwiązanie
     result.classList.remove("d-none"); 
-    // pow. funkcja zmienia display const result; ALE wyrzucał błąd,
-    // bo nie potrzebnie dodałem to .classList.add("d-block")
+    scrollTo(0,0);
 
     // NET NINJA rozwiązanie
-    // result.querySelector('span').textContent = '%{score}';
+    // result.querySelector('span').textContent = '${score}%';
     // result.classList.remove('d-none');
 
-
+    // animacja 
+    let output = 0;
+    const timer = setInterval(() => {
+        result.querySelector('span').textContent = `${output}%`;
+        if(output === score){
+            clearInterval(timer);
+        } else {
+            output++;
+        }
+    },10)
 });
 
-
+setTimeout(() => {
+    alert('Hi Ninja! You should do it faster! :P')
+}, 6500);
